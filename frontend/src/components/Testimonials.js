@@ -16,9 +16,9 @@ export default function Testimonials() {
   const timerRef = useRef(null);
 
   const updateVisibleItems = useCallback(() => {
-    if (window.innerWidth >= 1024) setVisibleItems(3);
-    else if (window.innerWidth >= 640) setVisibleItems(2);
-    else setVisibleItems(1);
+    if (window.innerWidth >= 1024) setVisibleItems(3.2);
+    else if (window.innerWidth >= 640) setVisibleItems(2.2);
+    else setVisibleItems(1.2);
   }, []);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Testimonials() {
     return () => window.removeEventListener('resize', updateVisibleItems);
   }, [updateVisibleItems]);
 
-  const maxIndex = Math.max(0, testimonials.length - visibleItems);
+  const maxIndex = Math.ceil(testimonials.length - visibleItems);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -63,20 +63,20 @@ export default function Testimonials() {
   }, [maxIndex, currentIndex]);
 
   return (
-    <section className="py-12 bg-gradient-to-br from-primary-600 to-primary-800 overflow-hidden relative">
+    <section className="pt-6 pb-4 md:pt-12 md:pb-8 bg-gradient-to-br from-primary-600 to-primary-800 overflow-hidden relative">
       {/* Background Accents */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 reveal">
-          <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-none uppercase tracking-wider mb-3">
+        <div className="text-center mb-6 md:mb-10 reveal">
+          <span className="inline-block bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-none uppercase tracking-wider mb-2">
             Testimonials
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-display text-xl md:text-3xl font-bold text-white mb-2">
             What Our Patients Say
           </h2>
-          <p className="text-primary-100 text-base md:text-lg max-w-xl mx-auto">
+          <p className="text-primary-100 text-[13px] md:text-base max-w-xl mx-auto">
             Hear first-hand from thousands of patients who trust us with their smiles daily.
           </p>
         </div>
@@ -98,25 +98,25 @@ export default function Testimonials() {
                   className="px-3 w-full shrink-0 transition-opacity duration-300"
                   style={{ width: `${100 / visibleItems}%` }}
                 >
-                  <div className="h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-none p-8 hover:bg-white/15 transition-colors duration-300 flex flex-col justify-between shadow-lg select-none">
+                  <div className="h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-none p-4 md:p-6 hover:bg-white/15 transition-colors duration-300 flex flex-col justify-between shadow-lg select-none">
                     <div>
-                      <div className="flex gap-1 mb-5">
+                      <div className="flex gap-1 mb-3 md:mb-4">
                         {Array.from({ length: t.rating }).map((_, j) => (
-                          <StarIcon key={j} className="text-yellow-400" style={{ fontSize: 18 }} />
+                          <StarIcon key={j} className="text-yellow-400" style={{ fontSize: 14 }} />
                         ))}
                       </div>
-                      <p className="text-white/90 text-[15px] leading-relaxed mb-6 italic font-medium font-sans">
+                      <p className="text-white/90 text-[12px] md:text-[14px] leading-relaxed mb-3 md:mb-4 italic font-medium font-sans">
                         "{t.text}"
                       </p>
                     </div>
                     
-                    <div className="flex items-center gap-4 mt-4 border-t border-white/10 pt-5">
-                      <div className="w-11 h-11 bg-white/20 text-white rounded-none flex items-center justify-center font-display font-bold text-lg shadow-sm">
+                    <div className="flex items-center gap-3 mt-3 border-t border-white/10 pt-3 md:pt-4">
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-white/20 text-white rounded-none flex items-center justify-center font-display font-bold text-sm md:text-base shadow-sm">
                         {t.name[0]}
                       </div>
                       <div>
-                        <p className="text-white font-bold font-display text-base tracking-tight leading-tight mb-1">{t.name}</p>
-                        <p className="text-primary-200 text-xs font-medium">{t.role}</p>
+                        <p className="text-white font-bold font-display text-[12px] md:text-sm tracking-tight leading-tight mb-0.5">{t.name}</p>
+                        <p className="text-primary-200 text-[9px] md:text-xs font-medium">{t.role}</p>
                       </div>
                     </div>
                   </div>
@@ -147,8 +147,8 @@ export default function Testimonials() {
         </div>
 
         {/* Active Indicators (Dots) */}
-        <div className="flex justify-center gap-2.5 mt-10 reveal">
-          {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+        <div className="flex justify-center gap-2.5 mt-6 md:mt-8 reveal">
+          {Array.from({ length: testimonials.length - Math.floor(visibleItems) + 1 }).map((_, idx) => (
             <button
               key={idx}
               onClick={() => handleDotClick(idx)}

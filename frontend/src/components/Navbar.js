@@ -61,12 +61,21 @@ export default function Navbar() {
           </ul>
 
           {/* Highlighted Action Button */}
-          <Link 
-            to="/booking" 
-            className="bg-sky-500 hover:bg-sky-600 text-white text-[11px] font-extrabold tracking-widest px-6 py-2.5 rounded-none transition-all shadow-sm shadow-sky-200 uppercase"
-          >
-            Make Appointment
-          </Link>
+          {location.pathname === '/' ? (
+            <button 
+              onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-sky-500 hover:bg-sky-600 text-white text-[11px] font-extrabold tracking-widest px-6 py-2.5 rounded-none transition-all shadow-sm shadow-sky-200 uppercase"
+            >
+              Make Appointment
+            </button>
+          ) : (
+            <Link 
+              to="/booking" 
+              className="bg-sky-500 hover:bg-sky-600 text-white text-[11px] font-extrabold tracking-widest px-6 py-2.5 rounded-none transition-all shadow-sm shadow-sky-200 uppercase"
+            >
+              Make Appointment
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Hamburger */}

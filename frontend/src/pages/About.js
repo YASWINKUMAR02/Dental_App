@@ -43,16 +43,6 @@ export default function About() {
                 Over the decade, we've evolved into a multi-specialty center housing orthodontics, cosmetic experts, and oral surgeons, serving thousands of happy patients. We utilize 100% digital workflows and the highest grades of biocompatible materials.
               </p>
               
-              <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h3 className="text-3xl font-bold text-gray-900">15k+</h3>
-                  <p className="text-sm text-gray-500 font-medium mt-1">Successful Cases</p>
-                </div>
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h3 className="text-3xl font-bold text-gray-900">98%</h3>
-                  <p className="text-sm text-gray-500 font-medium mt-1">Client Satisfaction</p>
-                </div>
-              </div>
             </div>
 
             <div className="relative flex justify-center md:justify-end reveal">

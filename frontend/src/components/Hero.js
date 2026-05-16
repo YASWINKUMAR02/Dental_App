@@ -57,12 +57,12 @@ export default function Hero() {
               >
                 Know More
               </Link>
-              <Link
-                to="/booking"
+              <button
+                onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full sm:w-auto bg-sky-400 hover:bg-sky-500 text-white text-[10px] font-extrabold tracking-widest px-6 py-3 rounded-none shadow-md shadow-sky-200 transition-all active:scale-95 uppercase"
               >
                 Make Appointment
-              </Link>
+              </button>
             </div>
 
           </div>

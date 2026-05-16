@@ -21,13 +21,13 @@
     @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover border border-gray-100/60 transition-all duration-300 hover:-translate-y-0.5;
   }
   .section-badge {
-    @apply inline-block bg-primary-50 text-primary-600 text-xs font-bold px-3 py-1 rounded-xl uppercase tracking-wider mb-3;
+    @apply inline-block bg-primary-50 text-primary-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-xl uppercase tracking-wider mb-3;
   }
   .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-4;
+    @apply font-display text-2xl md:text-4xl font-bold text-gray-900 leading-tight tracking-tight mb-4;
   }
   .section-subtitle {
-    @apply text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl;
+    @apply text-gray-500 text-sm md:text-lg leading-relaxed max-w-2xl;
   }
   .input-field {
     @apply w-full px-4 py-2.5 rounded-md border border-gray-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all duration-200 bg-gray-50/50 focus:bg-white text-gray-800 text-sm;
